@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Tom's Garden of Life</title>
+  </head>
+  <body>
+    <script src="conway.js"></script>
+    <h1>Welcome to Tom's Garden of Life!</h1>
+    <!-- Refactoring attempts below -->
+    <!-- Create a table, and will use the outer ones as the light-ups. -->
+    <h2>How does Tom's Garden of Life work?</h2>
+    <p>My Garden of Life is a spiral garden. The red lines represent walls dividing the plants from each other. Plant seeds wherever you like in the garden, and watch them grow. If a square is touched by no live squares, it dries up and dies. If it is surrounded by two live squares, it is choked out and perishes. However, if it is surrounded by just one live square, then it thrives and advances in age. Play with the garden to see what happens to plants as they grow older. And see if you can figure out the special rules the squares at the beginning and end of the spiral follow in regards to life and death.</p>
+    <table align="center">
+      <tr>
+        <td onclick="lifeAndDeath(this)" class="" id="0"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="1"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="2"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="3"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="4"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="5"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="6"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="7"></td>
+      </tr>
+      <tr>
+        <td onclick="lifeAndDeath(this)" class="" id="27"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="28"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="29"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="30"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="31"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="32"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="33"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="8"></td>
+      </tr>
+      <tr>
+        <td onclick="lifeAndDeath(this)" class="" id="26"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="47"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="48"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="49"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="50"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="51"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="34"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="9"></td>
+      </tr>
+      <tr>
+        <td onclick="lifeAndDeath(this)" class="" id="25"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="46"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="59"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="60"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="61"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="52"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="35"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="10"></td>
+      </tr>
+      <tr>
+        <td onclick="lifeAndDeath(this)" class="" id="24"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="45"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="58"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="63"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="62"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="53"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="36"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="11"></td>
+      </tr>
+      <tr>
+        <td onclick="lifeAndDeath(this)" class="" id="23"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="44"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="57"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="56"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="55"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="54"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="37"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="12"></td>
+      </tr>
+      <tr>
+        <td onclick="lifeAndDeath(this)" class="" id="22"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="43"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="42"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="41"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="40"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="39"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="38"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="13"></td>
+      </tr>
+      <tr>
+        <td onclick="lifeAndDeath(this)" class="" id="21"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="20"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="19"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="18"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="17"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="16"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="15"></td>
+        <td onclick="lifeAndDeath(this)" class="" id="14"></td>
+      </tr>
+    </table>
+    <p id="buttons">
+      <button onclick="stop(); slowTrue(); goSlow();" class="btn success" id="slow">Go slow</button>
+      <button onclick="stop(); normalTrue(); goNormal();" class="btn success" id="normal">Go normal speed</button>
+      <button onclick="stop(); fastTrue(); goFast();" class="btn success" id="fast">Go fast!</button>
+      <button onclick="stop()" class="btn success" id="stop">Stop</button>
+      <button onclick="stop(); reset();" class="btn success" id="reset">Reset</button>
+      <span id="year"></span>
+    </p>
+    <h2>Background</h2>
+    <p>My Garden of Life game is inspired by <a href="https://bitstorm.org/gameoflife/" target="_blank">Conway's Game of Life</a>, a simulated world where the life and death of each square depends on the vitality of the surrounding squares. The Game follows 4 simple rules:
+      <ol>
+        <li>Each dead cell next to exactly three live cells will come to life.</li>
+        <li>Each live cell with one or zero live cells next to it will die.</li>
+        <li>Each live cell with four or more neighboring cells will die.</li>
+        <li>Each live cell with two or three neighboring cells will stay alive.</li>
+      </ol>
+    </p>
+    <h2>How may different gardens are there?</h2>
+    <p>Because there are 64 squares in the garden, and each square can be empty or have an acorn, sprout, sapling, an oak, or a snag (dying tree), there are 6 ^ 64 possible garden configurations. That is equal to 6.3340287e+49, also known as 63 quindecillion. Poke around, plant some acorns, and see what happens!</p>
+    <h2>What I learned from this project</h2>
+    <p>I first made a version of Conway's Game of Life using a 1D column of just five squares. I learned how to manipulate the DOM and change the appearance of the squares using a toggle function to switch CSS classes. This was the first time I had ever made something <em>happen</em> on a page. That was a big moment for me. This more advanced version helped me learn the basics of functional programming.</p>
+  </body>
+</html>
